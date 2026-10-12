@@ -28,13 +28,15 @@
   .app span { color: var(--muted); font-size: 15px; }
   .app i { margin-left: auto; font-style: normal; font-size: 24px; color: var(--muted); }
   footer { color: var(--muted); font-size: 14px; text-align: center; margin-top: 32px; }
+  .lang a.on { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
+  [hidden] { display: none !important; }
 </style>
 </head>
 <body>
 <main>
 <nav class="lang"><a href="#cs">Čeština</a><a href="#en">English</a></nav>
 
-<section id="cs" lang="cs">
+<section id="cs" lang="cs" data-lang="cs">
   <h1>Expensee Apps</h1>
   <p class="lead">Aplikace a hry pro Android.</p>
   <div class="apps">
@@ -46,7 +48,7 @@
   </div>
 </section>
 
-<section id="en" lang="en">
+<section id="en" lang="en" data-lang="en">
   <h1>Expensee Apps</h1>
   <p class="lead">Apps and games for Android.</p>
   <div class="apps">
@@ -58,7 +60,23 @@
   </div>
 </section>
 
-<footer>© 2026 Ing. Vít Petrů · IČO 02171708 · Arnošta Staňka, Praha, Hostivař · fyzická osoba podnikající dle živnostenského zákona, zapsaná v živnostenském rejstříku<br><a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a> · <a href="privacy.html">Zásady ochrany soukromí Expensee / Expensee Privacy Policy</a></footer>
+<footer data-lang="cs" lang="cs">© 2026 Expensee Apps<br>Provozovatel: Ing. Vít Petrů · IČO 02171708 · Arnošta Staňka, Praha, Hostivař · fyzická osoba podnikající dle živnostenského zákona, zapsaná v živnostenském rejstříku<br><a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a> · <a href="privacy.html#cs">Zásady ochrany soukromí Expensee</a></footer>
+<footer data-lang="en" lang="en">© 2026 Expensee Apps<br>Operator: Ing. Vít Petrů · Business ID (IČO) 02171708 · Arnošta Staňka, Prague-Hostivař, Czech Republic · sole trader registered in the Czech Trade Licensing Register<br><a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a> · <a href="privacy.html#en">Expensee Privacy Policy</a></footer>
 </main>
+<script>
+  // Jen jeden jazyk: #cs / #en z odkazu, jinak podle jazyka prohlížeče (čeština a slovenština → cs).
+  (function () {
+    function show(scroll) {
+      var h = location.hash.slice(1);
+      var l = h === "cs" || h === "en" ? h : (/^(cs|sk)/i.test(navigator.language || "") ? "cs" : "en");
+      document.documentElement.lang = l;
+      document.querySelectorAll("[data-lang]").forEach(function (e) { e.hidden = e.getAttribute("data-lang") !== l; });
+      document.querySelectorAll(".lang a").forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + l); });
+      if (scroll) window.scrollTo(0, 0);
+    }
+    addEventListener("hashchange", function () { show(true); });
+    show(false);
+  })();
+</script>
 </body>
 </html>

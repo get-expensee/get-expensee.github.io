@@ -30,13 +30,15 @@
   .play { display: inline-block; margin-top: 4px; padding: 10px 18px; border-radius: 12px; background: var(--accent); color: var(--card) !important; font-weight: 600; text-decoration: none; }
   footer { color: var(--muted); font-size: 14px; text-align: center; margin-top: 32px; }
   hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+  .lang a.on { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
+  [hidden] { display: none !important; }
 </style>
 </head>
 <body>
 <main>
 <div class="top"><a class="home" href="../">‹ Expensee Apps</a><nav class="lang" style="margin:0"><a href="#cs">Čeština</a><a href="#en">English</a></nav></div>
 
-<section id="cs" lang="cs">
+<section id="cs" lang="cs" data-lang="cs">
   <div class="head"><img src="ikona.png" alt=""><h1>Expensee</h1></div>
   <p class="lead">Jednoduché sledování výdajů a příjmů pro Android. Bez účtu a registrace – data zůstávají ve vašem telefonu.</p>
   <p><a class="play" href="https://play.google.com/store/apps/details?id=com.getexpensee.app&amp;hl=cs">Stáhnout na Google Play</a></p>
@@ -55,7 +57,7 @@
   <p>Dotazy, chyby a nápady: <a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a></p>
 </section>
 
-<section id="en" lang="en">
+<section id="en" lang="en" data-lang="en">
   <div class="head"><img src="ikona.png" alt=""><h1>Expensee</h1></div>
   <p class="lead">Simple expense and income tracking for Android. No account, no sign-up – your data stays on your phone.</p>
   <p><a class="play" href="https://play.google.com/store/apps/details?id=com.getexpensee.app&amp;hl=en">Get it on Google Play</a></p>
@@ -74,7 +76,23 @@
   <p>Questions, bugs and ideas: <a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a></p>
 </section>
 
-<footer>© 2026 Ing. Vít Petrů · IČO 02171708 · Arnošta Staňka, Praha, Hostivař · fyzická osoba podnikající dle živnostenského zákona, zapsaná v živnostenském rejstříku<br><a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a> · <a href="../privacy.html">Zásady ochrany soukromí / Privacy Policy</a></footer>
+<footer data-lang="cs" lang="cs">© 2026 Expensee Apps<br>Provozovatel: Ing. Vít Petrů · IČO 02171708 · Arnošta Staňka, Praha, Hostivař · fyzická osoba podnikající dle živnostenského zákona, zapsaná v živnostenském rejstříku<br><a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a> · <a href="../privacy.html#cs">Zásady ochrany soukromí</a></footer>
+<footer data-lang="en" lang="en">© 2026 Expensee Apps<br>Operator: Ing. Vít Petrů · Business ID (IČO) 02171708 · Arnošta Staňka, Prague-Hostivař, Czech Republic · sole trader registered in the Czech Trade Licensing Register<br><a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a> · <a href="../privacy.html#en">Privacy Policy</a></footer>
 </main>
+<script>
+  // Jen jeden jazyk: #cs / #en z odkazu, jinak podle jazyka prohlížeče (čeština a slovenština → cs).
+  (function () {
+    function show(scroll) {
+      var h = location.hash.slice(1);
+      var l = h === "cs" || h === "en" ? h : (/^(cs|sk)/i.test(navigator.language || "") ? "cs" : "en");
+      document.documentElement.lang = l;
+      document.querySelectorAll("[data-lang]").forEach(function (e) { e.hidden = e.getAttribute("data-lang") !== l; });
+      document.querySelectorAll(".lang a").forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + l); });
+      if (scroll) window.scrollTo(0, 0);
+    }
+    addEventListener("hashchange", function () { show(true); });
+    show(false);
+  })();
+</script>
 </body>
 </html>

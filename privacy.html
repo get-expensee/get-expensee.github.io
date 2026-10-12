@@ -24,13 +24,15 @@
   .box { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; margin: 16px 0; }
   a { color: var(--accent); }
   hr { border: none; border-top: 1px solid var(--line); margin: 40px 0; }
+  .lang a.on { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
+  [hidden] { display: none !important; }
 </style>
 </head>
 <body>
 <main>
 <nav class="lang"><a href="#cs">Čeština</a><a href="#en">English</a></nav>
 
-<section id="cs" lang="cs">
+<section id="cs" lang="cs" data-lang="cs">
 <h1>Zásady ochrany soukromí aplikace Expensee</h1>
 <p class="meta">Platné od 6. 10. 2026</p>
 
@@ -85,9 +87,7 @@
 <p>Pokud se způsob nakládání s daty změní (například s novou funkcí), zásady upravíme a změnu uvedeme na této stránce s novým datem platnosti.</p>
 </section>
 
-<hr>
-
-<section id="en" lang="en">
+<section id="en" lang="en" data-lang="en">
 <h1>Expensee Privacy Policy</h1>
 <p class="meta">Effective from 6 October 2026</p>
 
@@ -142,5 +142,20 @@
 <p>If the way we handle data changes (for example with a new feature), we will update this policy and publish the change on this page with a new effective date.</p>
 </section>
 </main>
+<script>
+  // Jen jeden jazyk: #cs / #en z odkazu, jinak podle jazyka prohlížeče (čeština a slovenština → cs).
+  (function () {
+    function show(scroll) {
+      var h = location.hash.slice(1);
+      var l = h === "cs" || h === "en" ? h : (/^(cs|sk)/i.test(navigator.language || "") ? "cs" : "en");
+      document.documentElement.lang = l;
+      document.querySelectorAll("[data-lang]").forEach(function (e) { e.hidden = e.getAttribute("data-lang") !== l; });
+      document.querySelectorAll(".lang a").forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + l); });
+      if (scroll) window.scrollTo(0, 0);
+    }
+    addEventListener("hashchange", function () { show(true); });
+    show(false);
+  })();
+</script>
 </body>
 </html>
