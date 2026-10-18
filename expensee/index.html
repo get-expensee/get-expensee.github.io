@@ -27,7 +27,10 @@
   .top a.home { font-weight: 600; text-decoration: none; }
   .head { display: flex; align-items: center; gap: 16px; margin-bottom: 6px; }
   .head img { width: 64px; height: 64px; border-radius: 16px; }
-  .play { display: inline-block; margin-top: 4px; padding: 10px 18px; border-radius: 12px; background: var(--accent); color: var(--card) !important; font-weight: 600; text-decoration: none; }
+  /* oficiální odznak Google Play (../google-play-en.svg, neupravovat); volné místo kolem = 1/4 výšky */
+  .play { display: inline-block; padding: 14px; margin: -2px -14px -14px; }
+  .play img { display: block; height: 56px; transition: transform .15s ease; }
+  .play:hover img { transform: translateY(-2px); }
   footer { color: var(--muted); font-size: 14px; text-align: center; margin-top: 32px; }
   hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
   .lang a.on { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
@@ -38,11 +41,11 @@
 <main>
 <div class="top"><a class="home" href="../">‹ Expensee Apps</a><nav class="lang" style="margin:0"><a href="#cs">Čeština</a><a href="#en">English</a></nav></div>
 
-<section id="cs" lang="cs" data-lang="cs">
+<section lang="cs" data-lang="cs">
   <div class="head"><img src="ikona.png" alt=""><h1>Expensee</h1></div>
   <p class="lead">Jednoduché sledování výdajů a příjmů pro Android. Bez účtu a registrace – data zůstávají ve vašem telefonu.</p>
   <p>Expensee stáhnete zdarma. Pro odemknete jednou platbou – bez předplatného a bez reklam. Přidá období Rok a Vše, neomezené opakované platby a kategorie, export celé historie a další vzhledy.</p>
-  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.getexpensee.app&amp;hl=cs">Stáhnout na Google Play</a></p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.getexpensee.app&amp;hl=cs&amp;referrer=utm_source%3Dweb%26utm_campaign%3Dstranka_expensee"><img src="../google-play-en.svg" alt="Get it on Google Play"></a></p>
   <h2>Co umí</h2>
   <ul>
     <li>Rychlý zápis výdajů a příjmů s kategoriemi, vlastní kategorie s ikonou a barvou</li>
@@ -58,11 +61,11 @@
   <p>Dotazy, chyby a nápady: <a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a></p>
 </section>
 
-<section id="en" lang="en" data-lang="en">
+<section lang="en" data-lang="en">
   <div class="head"><img src="ikona.png" alt=""><h1>Expensee</h1></div>
   <p class="lead">Simple expense and income tracking for Android. No account, no sign-up – your data stays on your phone.</p>
   <p>Expensee is free to download. Pro unlocks with a single payment – no subscription, no ads. It adds the Year and All periods, unlimited recurring payments and categories, full-history export and additional themes.</p>
-  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.getexpensee.app&amp;hl=en">Get it on Google Play</a></p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.getexpensee.app&amp;hl=en&amp;referrer=utm_source%3Dweb%26utm_campaign%3Dstranka_expensee"><img src="../google-play-en.svg" alt="Get it on Google Play"></a></p>
   <h2>Features</h2>
   <ul>
     <li>Quick entry of expenses and income with categories, custom categories with icon and color</li>
