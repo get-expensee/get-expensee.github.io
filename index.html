@@ -156,6 +156,24 @@
     addEventListener("hashchange", function () { show(true); });
     show(false);
   })();
+  // Zdroj návštěvy (…/instagram → ?utm_source=instagram&utm_campaign=bio_en) předat do odkazů na Google Play, aby se
+  // v Play Console (Conversion analysis → UTM source) dal odlišit od webu. V sessionStorage platí i pro další stránky webu.
+  (function () {
+    var ok = /^[a-z0-9_-]{1,40}$/, q = new URLSearchParams(location.search), z = null;
+    if (ok.test(q.get("utm_source") || "")) {
+      z = { s: q.get("utm_source"), c: q.get("utm_campaign") || "" };
+      try { sessionStorage.setItem("zdroj", JSON.stringify(z)); } catch (e) {}
+      history.replaceState(null, "", location.pathname + location.hash);
+    } else {
+      try { z = JSON.parse(sessionStorage.getItem("zdroj")); } catch (e) {}
+    }
+    if (!z || !ok.test(z.s) || (z.c && !ok.test(z.c))) return;
+    document.querySelectorAll('a[href^="https://play.google.com/"]').forEach(function (a) {
+      var u = new URL(a.href);
+      u.searchParams.set("referrer", "utm_source=" + z.s + (z.c ? "&utm_campaign=" + z.c : ""));
+      a.href = u.toString();
+    });
+  })();
 </script>
 </body>
 </html>
