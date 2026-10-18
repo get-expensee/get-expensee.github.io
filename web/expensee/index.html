@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Expensee – sledování výdajů / Expense tracker</title>
+<meta name="description" content="Expensee – jednoduché sledování výdajů a příjmů pro Android. Data zůstávají ve vašem telefonu.">
+<!-- Stránka aplikace Expensee (get-expensee.github.io/expensee/). Tvrzení musí sedět s aplikací – nepsat funkce,
+     které nemá. Zásady zůstávají v kořeni webu (/privacy.html) – ta adresa je zadaná v Play Console. -->
+<style>
+  :root { --bg: #F6F7F6; --card: #FFFFFF; --fg: #1B1F1D; --muted: #5F6A64; --accent: #0C8F6E; --line: #E3E7E5; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0B0D0C; --card: #1B1F1D; --fg: #F5F7F6; --muted: #9AA39E; --accent: #26D490; --line: #2C322F; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 16px; line-height: 1.6; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 34px; line-height: 1.2; margin: 0 0 6px; }
+  h2 { font-size: 20px; margin: 28px 0 8px; }
+  .lead { font-size: 18px; color: var(--muted); margin: 0 0 20px; }
+  .lang { display: flex; gap: 12px; margin: 8px 0 24px; }
+  .lang a, a { color: var(--accent); }
+  .lang a { font-weight: 600; text-decoration: none; }
+  section { background: var(--card); border-radius: 16px; padding: 20px; margin-bottom: 24px; }
+  ul { padding-left: 22px; margin: 0; }
+  li { margin: 4px 0; }
+  .note { color: var(--muted); font-size: 14px; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .top a.home { font-weight: 600; text-decoration: none; }
+  .head { display: flex; align-items: center; gap: 16px; margin-bottom: 6px; }
+  .head img { width: 64px; height: 64px; border-radius: 16px; }
+  /* oficiální odznak Google Play (../google-play-en.svg, neupravovat); volné místo kolem = 1/4 výšky */
+  .play { display: inline-block; padding: 14px; margin: -2px -14px -14px; }
+  .play img { display: block; height: 56px; transition: transform .15s ease; }
+  .play:hover img { transform: translateY(-2px); }
+  footer { color: var(--muted); font-size: 14px; text-align: center; margin-top: 32px; }
+  hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+  .lang a.on { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+<div class="top"><a class="home" href="../">‹ Expensee Apps</a><nav class="lang" style="margin:0"><a href="#cs">Čeština</a><a href="#en">English</a></nav></div>
+
+<section lang="cs" data-lang="cs">
+  <div class="head"><img src="ikona.png" alt=""><h1>Expensee</h1></div>
+  <p class="lead">Jednoduché sledování výdajů a příjmů pro Android. Bez účtu a registrace – data zůstávají ve vašem telefonu.</p>
+  <p>Expensee stáhnete zdarma. Pro odemknete jednou platbou – bez předplatného a bez reklam. Přidá období Rok a Vše, neomezené opakované platby a kategorie, export celé historie a další vzhledy.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.getexpensee.app&amp;hl=cs&amp;referrer=utm_source%3Dweb%26utm_campaign%3Dstranka_expensee"><img src="../google-play-en.svg" alt="Get it on Google Play"></a></p>
+  <h2>Co umí</h2>
+  <ul>
+    <li>Rychlý zápis výdajů a příjmů s kategoriemi, vlastní kategorie s ikonou a barvou</li>
+    <li>Opakované platby (nájem, předplatné, výplata) s připomínkami</li>
+    <li>Zůstatek, statistiky a přehled po měsících, rocích i za celou dobu</li>
+    <li>Export do CSV a Excelu, import z tabulky podle šablony a záloha</li>
+    <li>Zámek aplikace PINem nebo otiskem prstu a skrytí částek</li>
+    <li>14 jazyků a několik vzhledů včetně tmavého</li>
+  </ul>
+  <h2>Soukromí</h2>
+  <p>Expensee nemá server ani uživatelské účty a nepřipojuje se k internetu. Vše, co zapíšete, zůstává v telefonu. Podrobnosti v <a href="../privacy.html#cs">zásadách ochrany soukromí</a>.</p>
+  <h2>Kontakt</h2>
+  <p>Dotazy, chyby a nápady: <a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a></p>
+</section>
+
+<section lang="en" data-lang="en">
+  <div class="head"><img src="ikona.png" alt=""><h1>Expensee</h1></div>
+  <p class="lead">Simple expense and income tracking for Android. No account, no sign-up – your data stays on your phone.</p>
+  <p>Expensee is free to download. Pro unlocks with a single payment – no subscription, no ads. It adds the Year and All periods, unlimited recurring payments and categories, full-history export and additional themes.</p>
+  <p><a class="play" href="https://play.google.com/store/apps/details?id=com.getexpensee.app&amp;hl=en&amp;referrer=utm_source%3Dweb%26utm_campaign%3Dstranka_expensee"><img src="../google-play-en.svg" alt="Get it on Google Play"></a></p>
+  <h2>Features</h2>
+  <ul>
+    <li>Quick entry of expenses and income with categories, custom categories with icon and color</li>
+    <li>Recurring payments (rent, subscriptions, salary) with reminders</li>
+    <li>Balance, statistics and overview by month, year or all time</li>
+    <li>Export to CSV and Excel, import from a spreadsheet template and backup</li>
+    <li>App lock with PIN or fingerprint, and hidden amounts</li>
+    <li>14 languages and several themes including dark</li>
+  </ul>
+  <h2>Privacy</h2>
+  <p>Expensee has no server and no user accounts and does not connect to the internet. Everything you record stays on your phone. Details in the <a href="../privacy.html#en">Privacy Policy</a>.</p>
+  <h2>Contact</h2>
+  <p>Questions, bugs and ideas: <a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a></p>
+</section>
+
+<footer data-lang="cs" lang="cs">© 2026 Expensee Apps<br>Provozovatel: Ing. Vít Petrů · IČO 02171708 · Arnošta Staňka, Praha, Hostivař · fyzická osoba podnikající dle živnostenského zákona, zapsaná v živnostenském rejstříku<br><a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a> · <a href="../privacy.html#cs">Zásady ochrany soukromí</a></footer>
+<footer data-lang="en" lang="en">© 2026 Expensee Apps<br>Operator: Ing. Vít Petrů · Business ID (IČO) 02171708 · Arnošta Staňka, Prague-Hostivař, Czech Republic · sole trader registered in the Czech Trade Licensing Register<br><a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a> · <a href="../privacy.html#en">Privacy Policy</a></footer>
+</main>
+<script>
+  // Jen jeden jazyk: #cs / #en z odkazu, jinak podle jazyka prohlížeče (čeština a slovenština → cs).
+  (function () {
+    function show(scroll) {
+      var h = location.hash.slice(1);
+      var l = h === "cs" || h === "en" ? h : (/^(cs|sk)/i.test(navigator.language || "") ? "cs" : "en");
+      document.documentElement.lang = l;
+      document.querySelectorAll("[data-lang]").forEach(function (e) { e.hidden = e.getAttribute("data-lang") !== l; });
+      document.querySelectorAll(".lang a").forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + l); });
+      if (scroll) window.scrollTo(0, 0);
+    }
+    addEventListener("hashchange", function () { show(true); });
+    show(false);
+  })();
+  // Zdroj návštěvy (…/instagram → ?utm_source=instagram&utm_campaign=bio_en) předat do odkazů na Google Play, aby se
+  // v Play Console (Conversion analysis → UTM source) dal odlišit od webu. V sessionStorage platí i pro další stránky webu.
+  (function () {
+    var ok = /^[a-z0-9_-]{1,40}$/, q = new URLSearchParams(location.search), z = null;
+    if (ok.test(q.get("utm_source") || "")) {
+      z = { s: q.get("utm_source"), c: q.get("utm_campaign") || "" };
+      try { sessionStorage.setItem("zdroj", JSON.stringify(z)); } catch (e) {}
+      history.replaceState(null, "", location.pathname + location.hash);
+    } else {
+      try { z = JSON.parse(sessionStorage.getItem("zdroj")); } catch (e) {}
+    }
+    if (!z || !ok.test(z.s) || (z.c && !ok.test(z.c))) return;
+    document.querySelectorAll('a[href^="https://play.google.com/"]').forEach(function (a) {
+      var u = new URL(a.href);
+      u.searchParams.set("referrer", "utm_source=" + z.s + (z.c ? "&utm_campaign=" + z.c : ""));
+      a.href = u.toString();
+    });
+  })();
+</script>
+</body>
+</html>
