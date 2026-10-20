@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Expensee Apps</title>
+<!-- Záchytná stránka GitHub Pages: jakýkoli neexistující odkaz get-expensee.github.io/<zdroj>[/<kampaň>] přesměruje na rozcestník
+     se značkou ?utm_source=<zdroj>&utm_campaign=<kampaň> (bez kampaně „odkaz“), takže nový zdroj nepotřebuje vlastní složku.
+     Nahrazuje složky jen tehdy, když nejsou potřeba náhledy odkazu (GitHub vrací kód 404, sítě pak často náhled neukážou)
+     – pro takové místo (Facebook, Reddit) je vlastní složka. Značka musí odpovídat /^[a-z0-9_-]{1,40}$/, jinak jde jen na rozcestník. -->
+<script>
+(function () {
+  var ok = /^[a-z0-9_-]{1,40}$/;
+  var p = location.pathname.split("/").filter(Boolean).map(function (s) { return s.toLowerCase(); });
+  var s = p[0] || "", c = p[1] || "";
+  var q = ok.test(s) ? "?utm_source=" + s + "&utm_campaign=" + (ok.test(c) ? c : "odkaz") : "";
+  location.replace("/" + q + location.hash);
+})();
+</script>
+</head>
+<body><noscript><p><a href="/">Expensee Apps</a></p></noscript></body>
+</html>
