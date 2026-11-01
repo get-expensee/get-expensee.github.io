@@ -1,0 +1,118 @@
+/* Společný vzhled všech stránek webu. Navrženo nejdřív pro telefon (většina návštěv z odkazů na sítích),
+   od 700 px šířky větší písmo a karta aplikace ve dvou sloupcích. */
+/* DM Sans – © The DM Sans Project Authors, SIL Open Font License 1.1 (https://openfontlicense.org) */
+@font-face { font-family: 'DM Sans'; font-weight: 400 700; src: url(fonts/dm-sans-latin-ext.woff2) format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 400 700; src: url(fonts/dm-sans-latin.woff2) format('woff2'); }
+:root { --bg: #F4F7F5; --card: #FFFFFF; --fg: #1B1F1D; --muted: #5F6A64; --accent: #00704B; --line: #DDE6E1;
+        --feat: radial-gradient(circle at 82% 78%, #C9EFDD 0, #E3F5EC 42%, #F7FBF9 80%);
+        --chip-bg: #fff; --chip-fg: #00704B; --chip-line: #BFE5D5; --tick: #00B37A; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0B0D0C; --card: #151917; --fg: #F2F5F3; --muted: #9AA39E; --accent: #3FDDA0; --line: #262C29;
+          --feat: radial-gradient(circle at 82% 78%, #0F4630 0, #10291F 45%, #131917 82%);
+          --chip-bg: rgba(255,255,255,.05); --chip-fg: #7BE8BF; --chip-line: #285443; --tick: #3FDDA0; } }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: 'DM Sans', system-ui, sans-serif;
+       font-size: 16px; line-height: 1.55; overflow-x: hidden; }
+main { max-width: 880px; min-height: 100vh; min-height: 100dvh; margin: 0 auto; padding: 12px 16px 20px;
+       display: flex; flex-direction: column; }
+a { color: var(--accent); }
+[hidden] { display: none !important; }
+
+/* horní lišta: logo / zpět vlevo, jazyk vpravo; výška 48 px = pohodlné klepnutí */
+.bar { display: flex; align-items: center; gap: 10px; min-height: 48px; margin-bottom: 18px; }
+.bar b { font-size: 18px; letter-spacing: -.2px; }
+.mark { width: 36px; height: 36px; border-radius: 10px; background: #fff; box-shadow: 0 2px 8px rgba(0,60,40,.12); flex: none; }
+.mark img { display: block; width: 100%; height: 100%; }
+.back { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding-right: 8px;
+        font-weight: 600; font-size: 15px; text-decoration: none; color: var(--fg); }
+.back svg { width: 20px; height: 20px; }
+.lang { margin-left: auto; display: flex; }
+.lang a { min-width: 44px; min-height: 44px; display: grid; place-items: center; font-weight: 700; font-size: 14px;
+          text-decoration: none; color: var(--muted); }
+.lang a.on { color: var(--fg); }
+
+h1 { font-size: 30px; line-height: 1.15; letter-spacing: -.8px; margin: 0 0 18px; }
+
+/* přehled aplikací: dlaždice = celá klikací */
+.apps { display: grid; gap: 12px; }
+.app { display: flex; align-items: center; gap: 16px; padding: 16px; border-radius: 22px; background: var(--feat);
+       text-decoration: none; color: inherit; }
+.app > img { width: 72px; height: 72px; border-radius: 18px; flex: none; box-shadow: 0 4px 14px rgba(0,60,40,.15); }
+.app h2 { margin: 0; font-size: 22px; letter-spacing: -.4px; line-height: 1.2; }
+.app p { margin: 2px 0 0; color: var(--muted); font-size: 15px; line-height: 1.35; }
+.app small { display: block; margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: var(--chip-fg); }
+.app .go { margin-left: auto; width: 24px; height: 24px; flex: none; color: var(--muted); }
+
+/* karta aplikace – telefon dole přetéká přes spodní okraj (oříznutý) */
+.feat { position: relative; overflow: hidden; display: grid; gap: 24px; padding: 22px 16px 0; border-radius: 26px; background: var(--feat); }
+.app-head { display: flex; align-items: center; gap: 14px; }
+.app-head img { width: 60px; height: 60px; border-radius: 15px; box-shadow: 0 4px 14px rgba(0,60,40,.15); }
+.app-head h1 { margin: 0; font-size: 30px; }
+.app-head small { display: block; font-size: 13px; font-weight: 700; color: var(--muted); }
+.tag { margin: 16px 0 0; font-size: 20px; line-height: 1.3; font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; list-style: none; }
+.chips li { font-size: 13px; font-weight: 600; color: var(--chip-fg); background: var(--chip-bg); border: 1.5px solid var(--chip-line);
+            border-radius: 999px; padding: 3px 11px; }
+/* odznaky obchodů vedle sebe ve stejné výšce, volné místo kolem = 1/4 výšky (Google); App Store vždy první, černý a bez
+   efektu při najetí (Apple) – s data-ios a hidden se odkryje až po vydání v App Store */
+.badges { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.badge { display: block; }
+.badge img { display: block; height: 46px; transition: transform .15s ease, filter .15s ease; }
+.badge.gp:hover img, .badge.gp:focus-visible img { transform: translateY(-2px); filter: drop-shadow(0 8px 16px rgba(0,40,25,.28)); }
+/* štítek „iOS – připravujeme“ místo odznaku App Store, dokud aplikace nevyjde (Apple dovoluje odznak jen u aplikace ke stažení);
+   bez loga a grafiky Apple, po vydání smazat a odkrýt data-ios */
+.soon { display: inline-flex; align-items: center; height: 46px; padding: 0 16px; border: 1.5px dashed var(--chip-line);
+        border-radius: 10px; color: var(--muted); font-size: 14px; font-weight: 600; white-space: nowrap; }
+.more { display: inline-flex; align-items: center; gap: 2px; min-height: 44px; margin-top: 10px; font-weight: 600; font-size: 15px;
+        color: var(--accent); text-decoration: none; }
+.more svg { width: 18px; height: 18px; }
+/* Telefon stejný jako na snímcích pro Google Play (obchod/zdroj/snimky.html); rozměry z phone() pro šířku displeje 230 px. */
+.phone { position: relative; align-self: start; justify-self: center; margin-bottom: -250px; padding: 2.2px; border-radius: 34px;
+         background: linear-gradient(90deg, #1c1e20 0%, #5b5f62 2.5%, #2a2d2f 6%, #3a3d40 50%, #2a2d2f 94%, #5b5f62 97.5%, #1c1e20 100%);
+         box-shadow: 0 30px 70px rgba(0,40,25,.22), 0 8px 22px rgba(0,0,0,.10); }
+.bezel { padding: 5.4px; border-radius: 31.9px; background: #050506; }
+.btn { position: absolute; right: -1.6px; width: 1.6px; border-radius: 0 3px 3px 0; background: linear-gradient(90deg, #2a2d2f 0%, #5b5f62 45%, #2f3234 100%); }
+.screen { position: relative; overflow: hidden; width: 230px; height: 498px; border-radius: 26.5px; background: #F6F6F6; }
+.screen > img { display: block; width: 100%; clip-path: inset(0 0 4px 0); }
+.status { position: absolute; left: 0; right: 0; top: 0; height: 26.7px; padding: 0 17px; display: flex; align-items: center;
+          justify-content: space-between; font-size: 7.8px; font-weight: 600; color: #1A1C1B; }
+.status span { display: flex; gap: 2.8px; }
+.status svg { height: 7.4px; }
+.cam { position: absolute; left: 50%; top: 6.2px; width: 14.3px; height: 14.3px; margin-left: -7.15px; border-radius: 50%;
+       background: radial-gradient(circle at 36% 33%, rgba(255,255,255,.75) 0 4%, rgba(255,255,255,0) 7%),
+                   radial-gradient(circle, #43507e 0 14%, #1b2236 26%, #07080c 44%, #000 52%, #232527 60%, #3a3d40 64%, #060606 70%); }
+
+/* stránka „Více o aplikaci“ */
+.lead { font-size: 18px; line-height: 1.45; margin: 14px 0 0; }
+.box { background: var(--card); border-radius: 20px; padding: 18px; margin-top: 12px; }
+.box h2 { margin: 0 0 8px; font-size: 18px; letter-spacing: -.2px; }
+.box p { margin: 0; }
+.ticks { list-style: none; margin: 0; padding: 0; }
+.ticks li { position: relative; padding: 7px 0 7px 30px; border-top: 1px solid var(--line); }
+.ticks li:first-child { border-top: 0; }
+.ticks li::before { content: ""; position: absolute; left: 2px; top: 12px; width: 16px; height: 9px;
+                    border: solid var(--tick); border-width: 0 0 2.5px 2.5px; transform: rotate(-45deg) scale(.8); }
+
+footer { margin-top: auto; padding: 18px 0 4px; color: var(--muted); font-size: 13px; line-height: 1.6; text-align: center; }
+footer nav { display: flex; flex-wrap: wrap; justify-content: center; column-gap: 16px; }
+footer nav a { display: inline-block; padding: 6px 0; }
+footer .tm { display: block; margin-top: 10px; font-size: 11px; }
+.spacer { height: 40px; flex: none; }
+
+@media (min-width: 700px) {
+  main { padding: 20px 24px 24px; }
+  .bar { margin-bottom: 36px; }
+  h1 { font-size: 40px; margin-bottom: 26px; }
+  .apps { grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
+  .feat { grid-template-columns: 1fr 250px; gap: 28px; padding: 36px 40px; border-radius: 28px; }
+  .phone { justify-self: end; }
+  .app-head img { width: 64px; height: 64px; border-radius: 16px; }
+  .app-head h1 { font-size: 36px; }
+  .tag { font-size: 22px; }
+  .chips li { font-size: 14px; padding: 4px 13px; }
+  .badge img { height: 56px; }
+  .soon { height: 56px; padding: 0 20px; font-size: 15px; }
+  .badges { gap: 14px; margin-top: 28px; }
+  .box { padding: 22px 26px; }
+}
