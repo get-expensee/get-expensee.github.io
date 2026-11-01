@@ -9,7 +9,8 @@
 @media (prefers-color-scheme: dark) {
   :root { --bg: #0B0D0C; --card: #151917; --fg: #F2F5F3; --muted: #9AA39E; --accent: #3FDDA0; --line: #262C29;
           --feat: radial-gradient(circle at 82% 78%, #0F4630 0, #10291F 45%, #131917 82%);
-          --chip-bg: rgba(255,255,255,.05); --chip-fg: #7BE8BF; --chip-line: #285443; --tick: #3FDDA0; } }
+          /* štítky jako v tmavém banneru (obchod/zdroj/bannery.html, .dark .chips span) */
+          --chip-bg: #2A3F38; --chip-fg: #CFE6DC; --chip-line: #2A3F38; --tick: #3FDDA0; } }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--bg); color: var(--fg); font-family: 'DM Sans', system-ui, sans-serif;
@@ -41,7 +42,7 @@ h1 { font-size: 30px; line-height: 1.15; letter-spacing: -.8px; margin: 0 0 18px
 .app > img { width: 72px; height: 72px; border-radius: 18px; flex: none; box-shadow: 0 4px 14px rgba(0,60,40,.15); }
 .app h2 { margin: 0; font-size: 22px; letter-spacing: -.4px; line-height: 1.2; }
 .app p { margin: 2px 0 0; color: var(--muted); font-size: 15px; line-height: 1.35; }
-.app small { display: block; margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: var(--chip-fg); }
+.app small { display: block; margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: var(--accent); }
 .app .go { margin-left: auto; width: 24px; height: 24px; flex: none; color: var(--muted); }
 
 /* karta aplikace – telefon dole přetéká přes spodní okraj (oříznutý) */
