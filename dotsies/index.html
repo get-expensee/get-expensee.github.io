@@ -8,9 +8,11 @@
 <meta name="theme-color" content="#F4F7F5">
 <!-- Karta hry Dotsies (get-expensee.github.io/dotsies/). Zdroj hry: ClaudeAll\8_Dotsies.
      Obrazovka domu-cs.png = app\build\screens\0_domu.png zmenšená pod místo pro stavový řádek (690 × 1493, okraje barvou
-     pozadí hry #EFF1F3); anglická obrazovka není, obě řeči ukazují českou. ikona.png = play\ikona-512.png (256 px).
-     Hra ještě není vydaná: místo odznaku Google Play je štítek „připravujeme“ – v den vydání ho nahradit odznakem
-     ../google-play-en.svg s odkazem na id=cz.dotsies.app (jako expensee/index.html) a na úvodní stránce smazat „připravujeme“. -->
+     pozadí hry #EFF1F3; obrázek 650 px na x 20, y 80); domu-en.png stejně z app\build\screens\en\0_domu.png.
+     ikona.png = play\ikona-512.png (256 px).
+     Odznak Google Play je zatím bez odkazu (web se zveřejní až s vydáním hry): v den vydání <span class="badge"> změnit na
+     <a class="badge gp" href="https://play.google.com/store/apps/details?id=cz.dotsies.app&amp;hl=cs|en"> jako v expensee/index.html.
+     iOS zatím jen štítek „připravujeme“ (Apple dovoluje odznak jen u aplikace ke stažení). -->
 <link rel="stylesheet" href="../web.css">
 <style>.screen { background: #EFF1F3; }</style>
 </head>
@@ -27,7 +29,7 @@
       <div class="app-head"><img src="ikona.png" alt=""><div><h1>Dotsies</h1><small>Android</small></div></div>
       <p class="tag">Polož tečky a obsaď víc čar než soupeři</p>
       <ul class="chips"><li>Bez reklam</li><li>Bez předplatného</li><li>Offline a bez účtu</li></ul>
-      <div class="badges"><span class="soon">Google Play – připravujeme</span></div>
+      <div class="badges"><span class="badge"><img src="../google-play-en.svg" alt="Get it on Google Play"></span><span class="soon">iOS – připravujeme</span></div>
     </div>
     <div class="phone" data-shot="domu-cs.png" data-alt="Dotsies – výběr módu"></div>
   </article>
@@ -39,9 +41,9 @@
       <div class="app-head"><img src="ikona.png" alt=""><div><h1>Dotsies</h1><small>Android</small></div></div>
       <p class="tag">Place your dots and claim more lines than your opponents</p>
       <ul class="chips"><li>No ads</li><li>No subscriptions</li><li>Offline, no account</li></ul>
-      <div class="badges"><span class="soon">Google Play – coming soon</span></div>
+      <div class="badges"><span class="badge"><img src="../google-play-en.svg" alt="Get it on Google Play"></span><span class="soon">iOS – coming soon</span></div>
     </div>
-    <div class="phone" data-shot="domu-cs.png" data-alt="Dotsies – mode selection"></div>
+    <div class="phone" data-shot="domu-en.png" data-alt="Dotsies – mode selection"></div>
   </article>
 </section>
 
