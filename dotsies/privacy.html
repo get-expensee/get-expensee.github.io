@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dotsies – Zásady ochrany soukromí / Privacy Policy</title>
-<!-- Zásady ochrany soukromí hry Dotsies pro Google Play. Odpovídají aplikaci 1.0.0 (versionCode 19, 9. 11. 2026):
-     bez oprávnění k internetu, postup v SharedPreferences, nákupy přes Google Play Billing, allowBackup = záloha Google.
-     Při změně hry (nová data, síť, reklamy) text upravit – tvrzení tady musí sedět s kódem i se Zabezpečením údajů
-     v Play Console. Vzhled stejný jako ../expensee/privacy.html. -->
+<!-- Zásady ochrany soukromí hry Dotsies pro Google Play a App Store. Android: bez oprávnění k internetu, postup
+     v SharedPreferences, nákupy Google Play Billing, allowBackup = záloha Google. iPhone (větev ios): postup v NSUserDefaults
+     (záloha iCloud), nákupy StoreKit 2 + Obnovit nákupy. Na iOS netvrdit „nemá přístup k internetu“ – iOS takové oprávnění nemá.
+     Při změně hry (nová data, síť, reklamy) text upravit – tvrzení tady musí sedět s kódem, se Zabezpečením údajů
+     v Play Console i s App Privacy v App Store Connect. Vzhled stejný jako ../expensee/privacy.html. -->
 <style>
   :root { --bg: #F6F7F6; --card: #FFFFFF; --fg: #1B1F1D; --muted: #5F6A64; --accent: #0C8F6E; --line: #E3E7E5; }
   @media (prefers-color-scheme: dark) { :root { --bg: #0B0D0C; --card: #1B1F1D; --fg: #F5F7F6; --muted: #9AA39E; --accent: #26D490; --line: #2C322F; } }
@@ -34,9 +35,10 @@
 
 <section id="cs" lang="cs" data-lang="cs">
 <h1>Zásady ochrany soukromí hry Dotsies</h1>
-<p class="meta">Platné od 10. 11. 2026</p>
+<p class="meta">Platné od 18. 11. 2026</p>
 
-<div class="box"><b>Stručně:</b> Dotsies nemá server ani uživatelské účty, nemá oprávnění k internetu a nic neodesílá. Tvůj postup ve hře zůstává v telefonu. Ven se dostane jen tehdy, když máš zapnutou zálohu telefonu do svého účtu Google. Nákupy vyřizuje Google Play. My k tvým datům přístup nemáme.</div>
+<div class="box"><b>Stručně:</b> Dotsies nemá server ani uživatelské účty a nic neodesílá. Tvůj postup ve hře zůstává v telefonu. Ven se dostane jen tehdy, když máš zapnutou zálohu telefonu – na Androidu do svého účtu Google, na iPhonu do iCloudu. Nákupy vyřizuje Google Play nebo App Store. My k tvým datům přístup nemáme.</div>
+<p>Zásady platí pro Dotsies na Androidu (Google Play) i na iPhonu (App Store). Kde se liší, je to uvedeno.</p>
 
 <h2>1. Kdo jsme</h2>
 <p>Hru Dotsies vyvíjí a provozuje Ing. Vít Petrů, IČO 02171708, místo podnikání Arnošta Staňka, Praha, Hostivař („my“), na Google Play pod jménem Expensee Apps. Pro údaje popsané v části 4 jsme správcem osobních údajů. Kontakt ve všech věcech ochrany soukromí: <a href="mailto:expensee.support@gmail.com">expensee.support@gmail.com</a>.</p>
@@ -48,25 +50,26 @@
   <li><b>Statistiky pro odznaky:</b> počty pokusů, dny, kdy se hrálo, a získané odznaky.</li>
   <li><b>Nastavení:</b> vzhled (světlý / tmavý) a zobrazené návody.</li>
 </ul>
-<p>Hra nezná tvé jméno, e-mail ani polohu a nic takového nechce. Neobsahuje reklamy, analytické nástroje ani sledování a nemá oprávnění k internetu.</p>
+<p>Hra nezná tvé jméno, e-mail ani polohu a nic takového nechce. Neobsahuje žádný kód, který by data odesílal, ani reklamy, analytické nástroje nebo sledování. Na Androidu nemá ani oprávnění k internetu.</p>
 
 <h2>3. Kdy data opustí telefon</h2>
 <ul>
   <li><b>Záloha Androidu (Google):</b> pokud máš v telefonu zapnuté zálohování Google, Android automaticky zálohuje data hry (postup, statistiky, nastavení) do tvého účtu Google a po instalaci na novém telefonu je obnoví. Zálohu provádí a šifruje systém Android a řídí se <a href="https://policies.google.com/privacy">zásadami ochrany soukromí Googlu</a>; my k ní přístup nemáme. Zálohování vypneš nebo zálohu smažeš v nastavení telefonu a ve svém účtu Google.</li>
-  <li><b>Nákupy úrovní:</b> platbu celou zpracovává Google Play podle svých zásad. Hra se jen obchodu Google Play v telefonu zeptá, které balíčky máš koupené, a nákup potvrdí. Tvoje platební údaje nevidíme.</li>
-  <li><b>Google Play:</b> hru instaluješ a aktualizuješ přes Google Play, který se řídí zásadami Googlu. Google nám ukazuje souhrnné statistiky (např. počet instalací podle zemí) a, pokud máš v telefonu povolené sdílení diagnostiky, i hlášení o pádech hry s technickými údaji o telefonu. Neobsahují tvůj postup ve hře.</li>
+  <li><b>Záloha iPhonu (iCloud):</b> pokud máš zapnutou zálohu na iCloud (nebo zálohuješ iPhone do počítače), iOS do ní zahrne i data hry (postup, statistiky, nastavení) a při obnově nového iPhonu je vrátí. Zálohu provádí a šifruje iOS a řídí se <a href="https://www.apple.com/legal/privacy/">zásadami ochrany soukromí Apple</a>; my k ní přístup nemáme. Zálohu vypneš nebo smažeš v Nastavení iPhonu → tvoje jméno → iCloud.</li>
+  <li><b>Nákupy úrovní:</b> platbu celou zpracovává Google Play (Android), nebo App Store (iPhone) podle svých zásad. Hra se jen obchodu v telefonu zeptá, které balíčky máš koupené, a nákup potvrdí; na iPhonu může tlačítkem Obnovit nákupy požádat App Store o seznam tvých nákupů. Tvoje platební údaje nevidíme.</li>
+  <li><b>Google Play a App Store:</b> hru instaluješ a aktualizuješ přes Google Play nebo App Store, které se řídí zásadami Googlu a Apple. Google i Apple nám ukazují souhrnné statistiky (např. počet instalací podle zemí) a, pokud máš v telefonu povolené sdílení diagnostiky s Googlem nebo s vývojáři aplikací, i hlášení o pádech hry s technickými údaji o telefonu. Neobsahují tvůj postup ve hře.</li>
 </ul>
 
 <h2>4. Údaje, které dostaneme my</h2>
-<p>Při nákupu nám Google Play předá údaje o objednávce (číslo objednávky, datum, cenu, koupenou položku a zemi nákupu). Používáme je jen k evidenci prodejů, účetnictví a daním (právní základ: plnění smlouvy a zákonná povinnost podle čl. 6 odst. 1 písm. b) a c) GDPR) a uchováváme je po dobu, kterou vyžadují účetní a daňové předpisy.</p>
+<p>Při nákupu na Androidu nám Google Play předá údaje o objednávce (číslo objednávky, datum, cenu, koupenou položku a zemi nákupu). Při nákupu na iPhonu nám Apple údaje o kupujícím nepředává – vidíme jen souhrnné přehledy prodejů (počet, cena a země). Používáme je jen k evidenci prodejů, účetnictví a daním (právní základ: plnění smlouvy a zákonná povinnost podle čl. 6 odst. 1 písm. b) a c) GDPR) a uchováváme je po dobu, kterou vyžadují účetní a daňové předpisy.</p>
 <p>Jinak osobní údaje zpracováváme jen tehdy, když nám napíšeš e-mail: tvoji e-mailovou adresu a obsah zprávy. Používáme je výhradně k vyřízení dotazu (právní základ: oprávněný zájem a vyřízení tvé žádosti podle čl. 6 odst. 1 písm. b) a f) GDPR). Po vyřízení konverzaci smažeme (z koše Gmailu zmizí automaticky nejpozději do 30 dnů). Nikomu ji nepředáváme. E-mail běží přes službu Gmail společnosti Google, která může zprávy zpracovávat i mimo Evropskou unii; přenos je zajištěn smluvními zárukami Googlu.</p>
 <p>Nepoužíváme automatizované rozhodování ani profilování.</p>
 
 <h2>5. Oprávnění aplikace</h2>
-<p>Hra má jediné oprávnění: nákupy přes Google Play (Billing). Nemá přístup k internetu, poloze, kontaktům, fotoaparátu ani souborům.</p>
+<p>Na Androidu má hra jediné oprávnění: nákupy přes Google Play (Billing). Nemá přístup k internetu, poloze, kontaktům, fotoaparátu ani souborům. Na iPhonu hra o žádné oprávnění nežádá – nemá přístup k poloze, kontaktům, fotkám, fotoaparátu ani mikrofonu.</p>
 
 <h2>6. Smazání dat</h2>
-<p>Postup, statistiky a nastavení smažeš v Nastavení telefonu → Aplikace → Dotsies → Úložiště → Vymazat data, nebo odinstalováním hry. Zálohu Google spravuješ ve svém účtu Google. Koupené balíčky zůstávají ve tvém účtu Google Play a po nové instalaci se odemknou znovu. E-mailovou komunikaci s námi mažeme sami po vyřízení dotazu; dřívější smazání si můžeš vyžádat na adrese výše.</p>
+<p>Na Androidu smažeš postup, statistiky a nastavení v Nastavení telefonu → Aplikace → Dotsies → Úložiště → Vymazat data, nebo odinstalováním hry. Na iPhonu je smažeš odstraněním hry z iPhonu. Zálohu Google spravuješ ve svém účtu Google, zálohu iCloud v Nastavení iPhonu. Koupené balíčky zůstávají ve tvém účtu Google Play nebo Apple a po nové instalaci se odemknou znovu. E-mailovou komunikaci s námi mažeme sami po vyřízení dotazu; dřívější smazání si můžeš vyžádat na adrese výše.</p>
 
 <h2>7. Děti</h2>
 <p>Hra není zaměřená na děti mladší 13 let. Žádné osobní údaje hráčů nezískává, a tedy ani údaje dětí.</p>
